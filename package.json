@@ -10,7 +10,7 @@
   "scripts": {
     "start": "concurrently \"npm run start --workspace=host\" \"npm run start --workspace=remote1\" \"npm run start --workspace=remote2\"",
     "build": "npm run build --workspace=remote1 && npm run build --workspace=remote2 && npm run build --workspace=host",
-    "build:netlify": "cd remote1 && npx webpack --config webpack.config.js --mode production && cd ../remote2 && npx webpack --config webpack.config.js --mode production && cd ../host && npx webpack --config webpack.config.js --mode production && cd .. && mkdir -p dist/remote1 dist/remote2 && cp -r remote1/dist/. dist/remote1/ && cp -r remote2/dist/. dist/remote2/ && cp -r host/dist/. dist/",
+    "build:netlify": "cd remote1 && ../node_modules/.bin/webpack --config webpack.config.js --mode production && cd ../remote2 && ../node_modules/.bin/webpack --config webpack.config.js --mode production && cd ../host && ../node_modules/.bin/webpack --config webpack.config.js --mode production && cd .. && mkdir -p dist/remote1 dist/remote2 && cp -r remote1/dist/. dist/remote1/ && cp -r remote2/dist/. dist/remote2/ && cp -r host/dist/. dist/",
     "install:all": "npm install"
   },
   "devDependencies": {
