@@ -1,0 +1,19 @@
+{
+  "name": "mfe-core-bank",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "host",
+    "remote1",
+    "remote2"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start --workspace=host\" \"npm run start --workspace=remote1\" \"npm run start --workspace=remote2\"",
+    "build": "npm run build --workspace=remote1 && npm run build --workspace=remote2 && npm run build --workspace=host",
+    "build:netlify": "npm run build && mkdir -p dist/remote1 dist/remote2 && cp -r remote1/dist/. dist/remote1/ && cp -r remote2/dist/. dist/remote2/ && cp -r host/dist/. dist/",
+    "install:all": "npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

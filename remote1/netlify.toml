@@ -1,0 +1,8 @@
+[build]
+  command = "cd .. && npm install && npm run build --workspace=remote1"
+  publish = "dist"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
