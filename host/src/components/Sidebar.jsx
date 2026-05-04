@@ -14,7 +14,16 @@ const menu = [
       { key: "master-user",     icon: "👤", label: "Master User" },
       { key: "master-role",     icon: "🔑", label: "Master Role" },
       { key: "master-branch",   icon: "🏢", label: "Master Branch" },
-      { key: "master-currency", icon: "💱", label: "Master Currency" },
+      {
+        key: "master-currency",
+        icon: "💱",
+        label: "Master Currency",
+        iconStyle: {
+          color: "#10b981",
+          glow: "0 0 12px rgba(16, 185, 129, 0.45)",
+          scale: 0.9,
+        },
+      },
     ],
   },
   {
@@ -264,7 +273,10 @@ const Icon = styled.span`
   text-align: center;
   flex-shrink: 0;
   filter: brightness(1.2) saturate(1.4);
-  transition: filter 0.2s;
+  color: ${({ iconStyle }) => iconStyle?.color || "inherit"};
+  text-shadow: ${({ iconStyle }) => iconStyle?.glow || "none"};
+  transform: scale(${({ iconStyle }) => iconStyle?.scale || 1});
+  transition: filter 0.2s, transform 0.2s;
 `;
 
 const Label = styled.span`
@@ -361,7 +373,7 @@ const Sidebar = ({ activeKey, onSelect, onCollapse }) => {
                   onMouseEnter={(e) => handleEnter(e, item.label)}
                   onMouseLeave={handleLeave}
                 >
-                  <Icon active={isActive}>{item.icon}</Icon>
+                  <Icon active={isActive} iconStyle={item.iconStyle}>{item.icon}</Icon>
                   <Label collapsed={collapsed} active={isActive}>{item.label}</Label>
                   <ActiveDot active={isActive} />
                 </NavItem>

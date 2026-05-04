@@ -5,12 +5,8 @@ import styled, { useTheme } from "styled-components";
 const Wrapper = styled.div`
   width: 100%;
   min-height: 100%;
-  background: ${({ theme }) =>
-    theme.mode === "light"
-      ? "linear-gradient(135deg, #e0f7f1 0%, #e8f4fd 50%, #f0e8ff 100%)"
-      : "linear-gradient(135deg, #0f1623 0%, #0d1b2a 50%, #1a0f2e 100%)"};
-  padding: 0 0 72px; /* space for fixed ButtonRow */
-  border-radius: 12px;
+  padding: 0 0 64px; /* space for fixed ButtonRow */
+  border-radius: 10px;
   transition: background 0.4s;
 `;
 
@@ -28,20 +24,20 @@ const StickyHeader = styled.div`
     theme.mode === "light"
       ? "rgba(255,255,255,0.8)"
       : "rgba(255,255,255,0.08)"};
-  padding: 20px 24px 16px;
-  margin: 0 -24px;
+  padding: 16px 20px 14px;
+  margin: 0 -20px;
   transition: background 0.25s;
 `;
 
 const PageTitle = styled.h1`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   color: ${({ theme }) => theme.textPrimary};
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 `;
 
 const PageSubtitle = styled.p`
-  font-size: 13px;
+  font-size: 12px;
   color: ${({ theme }) => theme.textSecondary};
 `;
 
@@ -56,9 +52,9 @@ const Card = styled.div`
     theme.mode === "light"
       ? "rgba(255,255,255,0.9)"
       : "rgba(255,255,255,0.1)"};
-  border-radius: 16px;
-  padding: 28px;
-  margin-top: 20px;
+  border-radius: 14px;
+  padding: 22px;
+  margin-top: 16px;
   margin-bottom: 8px;
   box-shadow: ${({ theme }) =>
     theme.mode === "light"
@@ -68,20 +64,20 @@ const Card = styled.div`
 `;
 
 const SectionTitle = styled.h3`
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.7px;
   color: ${({ theme }) => theme.accent};
-  margin-bottom: 18px;
-  padding-bottom: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
   border-bottom: 1px solid ${({ theme }) => theme.border};
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: ${({ cols }) => `repeat(${cols || 2}, 1fr)`};
-  gap: 16px 24px;
+  gap: 14px 20px;
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
@@ -91,11 +87,11 @@ const Grid = styled.div`
 const FormGroup = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 `;
 
 const Label = styled.label`
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: ${({ theme }) => theme.textSecondary};
   text-transform: uppercase;
@@ -103,9 +99,9 @@ const Label = styled.label`
 `;
 
 const baseInputStyle = `
-  padding: 9px 12px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 13px;
   outline: none;
   transition: border 0.2s;
   width: 100%;
@@ -161,8 +157,8 @@ const Select = styled.select`
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234ecca3' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 12px center;
-  padding-right: 32px;
+  background-position: right 10px center;
+  padding-right: 28px;
 
   &:focus {
     border-color: ${({ theme }) => theme.accent};
@@ -187,7 +183,7 @@ const Textarea = styled.textarea`
       : "rgba(255,255,255,0.1)"};
   color: ${({ theme }) => theme.textPrimary};
   resize: vertical;
-  min-height: 72px;
+  min-height: 64px;
   font-family: inherit;
 
   &:focus {
@@ -203,22 +199,22 @@ const Textarea = styled.textarea`
 const Divider = styled.div`
   height: 1px;
   background: ${({ theme }) => theme.border};
-  margin: 24px 0;
+  margin: 20px 0;
 `;
 
 const AccountRow = styled.div`
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr;
-  gap: 16px 20px;
+  gap: 14px 16px;
   align-items: end;
-  padding: 16px;
+  padding: 14px;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: ${({ theme }) =>
     theme.mode === "light"
       ? "rgba(255,255,255,0.4)"
       : "rgba(255,255,255,0.04)"};
-  border-radius: 10px;
+  border-radius: 9px;
   border: 1px solid ${({ theme }) =>
     theme.mode === "light"
       ? "rgba(255,255,255,0.8)"
@@ -230,25 +226,25 @@ const AccountRow = styled.div`
 `;
 
 const AccountLabel = styled.p`
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: ${({ theme }) => (props) =>
     props.type === "debit" ? "#ff6b6b" : theme.accent};
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 `;
 
 const TypeBadge = styled.span`
   display: inline-block;
-  padding: 3px 10px;
+  padding: 3px 9px;
   border-radius: 99px;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   background: ${({ type }) =>
     type === "debit" ? "rgba(255,107,107,0.15)" : "rgba(78,204,163,0.15)"};
   color: ${({ type }) => (type === "debit" ? "#ff6b6b" : "#4ecca3")};
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 `;
 
 const ButtonRow = styled.div`
@@ -259,8 +255,8 @@ const ButtonRow = styled.div`
   z-index: 50;
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  padding: 14px 32px;
+  gap: 10px;
+  padding: 12px 28px;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   background: ${({ theme }) =>
@@ -275,9 +271,9 @@ const ButtonRow = styled.div`
 `;
 
 const Btn = styled.button`
-  padding: 9px 24px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 7px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -305,17 +301,17 @@ const BtnOutline = styled(Btn)`
 `;
 
 const SuccessBanner = styled.div`
-  padding: 14px 18px;
+  padding: 12px 16px;
   background: rgba(78, 204, 163, 0.12);
   border: 1px solid #4ecca3;
-  border-radius: 8px;
+  border-radius: 7px;
   color: #4ecca3;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 `;
 
 /* ── Component ── */
