@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build:netlify"
+  command = "npm install --include=dev && npm run build:netlify"
   publish = "dist"
 
 
