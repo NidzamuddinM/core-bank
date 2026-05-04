@@ -2,6 +2,7 @@
   command = "npm install && npm run build:netlify"
   publish = "dist"
 
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
